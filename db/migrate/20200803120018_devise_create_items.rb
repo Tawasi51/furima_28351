@@ -6,6 +6,7 @@ class DeviseCreateItems < ActiveRecord::Migration[6.0]
       t.string  :item_name,   null: false
       t.string  :item_text,   null: false
       t.integer :item_price,  null: false
-      t.timestamps  
+      t.timestamps
+    end  
   end
 end
