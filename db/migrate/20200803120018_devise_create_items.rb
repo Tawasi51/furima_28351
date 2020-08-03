@@ -5,6 +5,7 @@ class DeviseCreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string  :item_name,   null: false
       t.string  :item_text,   null: false
-      t.integer :item_price,  null: false  
+      t.integer :item_price,  null: false
+      t.timestamps  
   end
 end
