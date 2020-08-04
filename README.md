@@ -49,10 +49,10 @@ Things you may want to cover:
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | text | text | null: false |
-| category   | string | null: false |
-| product_state | string | null: false |
-| delivery   | string | null: false |
-| prefecture | string | null: false |
+| category   | integer | null: false |
+| product_state | integer | null: false |
+| delivery   | integer | null: false |
+| prefecture | integer | null: false |
 | days    | integer | null: false |
 | price    | integer | null: false |
 | due    | integer | null: false |
@@ -75,7 +75,6 @@ Things you may want to cover:
 
 - belongs_to :users
 - belongs_to : items
-- has_one : addresses
 
 ### addresses テーブル
 
