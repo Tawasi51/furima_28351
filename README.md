@@ -39,11 +39,9 @@ Things you may want to cover:
 | kana_given_name    | string | null: false |
 | birth_day | date | null: false |
 
+### Association
 
-
-
-
-
+- has_one : sales
 
 ## items テーブル
 
@@ -55,21 +53,24 @@ Things you may want to cover:
 
 ### Association
 
-- has_one : addresses
+- has_one : sales
 
-## delivers テーブル
+## sales テーブル
 
 | Column | Type  | Options                        |
 | ------ | ---------- | ------------------------------ |
-| user_id  | integer | null: false |
-| messages_id   | integer  | null: false |
+| user_id  | integer | null: false, foreign_key: true　 |
+| item_id   | integer  | null: false, foreign_key: true |
+| address_id   | integer  | null: false, foreign_key: true |
 
 
 ### Association
 
+- belongs_to :users
+- belongs_to : items
 - has_one : addresses
 
-## messages テーブル
+### addresses テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -79,10 +80,8 @@ Things you may want to cover:
 | street    | string | null: false |
 | building   | string | default: "" |
 | tel    | string | null: false |
-| deliver    | references | null: false, foreign_key: true |
-| item     | references | null: false, foreign_key: true |
+| sale     | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item
-- belongs_to :item 
+- belongs_to : sales 
