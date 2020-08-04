@@ -37,9 +37,8 @@ Things you may want to cover:
 | given_name | string | null: false |
 | kana_family_name | string | null: false |
 | kana_given_name    | string | null: false |
-| birth_year | string | null: false |
-| birth_month | string | null: false |
-| birth_day | string | null: false |
+| birth_day | date | null: false |
+
 
 
 
@@ -50,9 +49,9 @@ Things you may want to cover:
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| item_name   | string | null: false |
-| item_text | string | null: false |
-| item_price    | integer | null: false |
+| name   | string | null: false |
+| text | text | null: false |
+| price    | integer | null: false |
 
 ### Association
 
@@ -62,10 +61,9 @@ Things you may want to cover:
 
 | Column | Type  | Options                        |
 | ------ | ---------- | ------------------------------ |
-| card_number   | integer | null: false |
-| exp_month   | integer  | null: false |
-| exp＿year | integer | null: false |
-| cvc   | integer | null: false |
+| user_id  | integer | null: false |
+| messages_id   | integer  | null: false |
+
 
 ### Association
 
@@ -75,16 +73,16 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| post_code    | integer | null: false|
+| post_code    | string | null: false|
 | pref    | string | null: false |
 | city    | string | null: false|
 | street    | string | null: false |
 | building   | string | default: "" |
-| tel    | integer | null: false |
+| tel    | string | null: false |
 | deliver    | references | null: false, foreign_key: true |
 | item     | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :deliver
+- belongs_to :item
 - belongs_to :item 
