@@ -49,7 +49,15 @@ Things you may want to cover:
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | text | text | null: false |
+| category   | string | null: false |
+| product_state | string | null: false |
+| delivery   | string | null: false |
+| prefecture | string | null: false |
+| days    | integer | null: false |
 | price    | integer | null: false |
+| due    | integer | null: false |
+| revenue   | integer | null: false |
+
 
 ### Association
 
@@ -61,7 +69,6 @@ Things you may want to cover:
 | ------ | ---------- | ------------------------------ |
 | user_id  | integer | null: false, foreign_key: true　 |
 | item_id   | integer  | null: false, foreign_key: true |
-| address_id   | integer  | null: false, foreign_key: true |
 
 
 ### Association
@@ -74,12 +81,9 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| post_code    | string | null: false|
+| post_code    | integer | null: false|
 | pref    | string | null: false |
 | city    | string | null: false|
-| street    | string | null: false |
-| building   | string | default: "" |
-| tel    | string | null: false |
 | sale     | references | null: false, foreign_key: true |
 
 ### Association
