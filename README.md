@@ -41,7 +41,8 @@ Things you may want to cover:
 
 ### Association
 
-- has_one : sales
+- has_many : sales
+- has_many : items
 
 ## items テーブル
 
@@ -57,11 +58,13 @@ Things you may want to cover:
 | price    | integer | null: false |
 | due    | integer | null: false |
 | revenue   | integer | null: false |
+| user_id  | integer | null: false, foreign_key: true　 |
 
 
 ### Association
-
+- belongs_to :users
 - has_one : sales
+- has_one : addresses
 
 ## sales テーブル
 
@@ -83,8 +86,9 @@ Things you may want to cover:
 | post_code    | integer | null: false|
 | pref    | string | null: false |
 | city    | string | null: false|
-| sale     | references | null: false, foreign_key: true |
+| item_id   | integer  | null: false, foreign_key: true |
+
 
 ### Association
 
-- belongs_to : sales 
+- belongs_to : items
