@@ -83,9 +83,12 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| post_code    | integer | null: false|
+| post_code    | string | null: false|
 | pref    | string | null: false |
 | city    | string | null: false|
+| street    | string | null: false |
+| building   | string | default: "" |
+| tel    | string | null: false |
 | item_id   | integer  | null: false, foreign_key: true |
 
 
