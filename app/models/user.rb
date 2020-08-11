@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :items
 
    with_options presence: true do
-    validates :nickname, presence: {message: "is invalid. Input required nickname."}
+    validates :nickname, presence: {with: /\A[ぁ-んァ-ン一-龥]/,message: "is invalid. Input required nickname."}
     validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
     validates :given_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters.' }
     validates :kana_family_name, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters.' }
