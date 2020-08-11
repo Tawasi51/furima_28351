@@ -1,27 +1,27 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  def  new
-    @user = User.new   
+  def new
+    @user = User.new
   end
-  
+
   def create
     # @user = User.new(user_params)   #「UserDonation」に編集
-    @user = User.new(sign_up_params)   #「UserDonation」に編集
-    
+    @user = User.new(sign_up_params) # 「UserDonation」に編集
+
     if @user.valid?
-      @user.save  # バリデーションをクリアした時
-      return redirect_to root_path
+      @user.save # バリデーションをクリアした時
+      redirect_to root_path
     else
-      render "new"    # バリデーションに弾かれた時
+      render 'new' # バリデーションに弾かれた時
     end
   end
- 
-  
-   private
-   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :family_name, :given_name, :kana_family_name,:kana_given_name,:birth_day)
-   end# before_action :configure_sign_up_params, only: [:create]
+
+  private
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :family_name, :given_name, :kana_family_name, :kana_given_name, :birth_day)
+  end # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
