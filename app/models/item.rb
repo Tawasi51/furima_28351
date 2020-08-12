@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 
    with_options validates presence: true do
       validates :name
+      validates :text
       validates :category
       validates :product_state
       validates :delivery
