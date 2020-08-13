@@ -95,3 +95,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to : item
+
+
+
+ <%= f.collection_select(:product_state, Product_state.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"item-sales-status"}) %>
