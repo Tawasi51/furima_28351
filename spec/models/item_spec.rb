@@ -56,22 +56,22 @@ RSpec.describe Item, type: :model do
     it 'priceが全角数字だと保存できないこと' do
       @item.price = '２０００'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is out of setting range")
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'priceが3000円未満では保存できないこと' do
-      @item.price =  0
+      @item.price = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is out of setting range")
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'priceが9,999,999円を超過すると保存できないこと' do
-      @item.price = 100000000
+      @item.price = 100_000_000
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is out of setting range")
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'user_idが空だと保存できない' do
       @item.user = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("User must exist")
+      expect(@item.errors.full_messages).to include('User must exist')
     end
   end
 end

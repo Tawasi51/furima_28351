@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(sign_up_params) 
+    @user = User.new(sign_up_params)
 
     if @user.valid?
       @user.save # バリデーションをクリアした時
