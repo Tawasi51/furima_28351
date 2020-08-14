@@ -6,10 +6,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(sign_up_params) # 「UserDonation」に編集
+    @user = User.new(sign_up_params)
 
     if @user.valid?
       @user.save # バリデーションをクリアした時
+      sign_up(resource_name, resource)
       redirect_to root_path
     else
       render 'new' # バリデーションに弾かれた時

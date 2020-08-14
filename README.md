@@ -54,7 +54,7 @@ Things you may want to cover:
 | product_state | integer | null: false |
 | delivery   | integer | null: false |
 | prefecture | integer | null: false |
-| days    | integer | null: false |
+| day    | integer | null: false |
 | price    | integer | null: false |
 | due    | integer | null: false |
 | revenue   | integer | null: false |
@@ -63,8 +63,8 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one : sale
-- has_one : address
+- has_one :sale
+- has_one :address
 
 ## sales テーブル
 
@@ -95,3 +95,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to : item
+
+
+
+ <%= f.collection_select(:product_state, Product_state.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"item-sales-status"}) %>
