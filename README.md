@@ -54,7 +54,7 @@ Things you may want to cover:
 | product_state | integer | null: false |
 | delivery   | integer | null: false |
 | prefecture | integer | null: false |
-| days    | integer | null: false |
+| day    | integer | null: false |
 | price    | integer | null: false |
 | due    | integer | null: false |
 | revenue   | integer | null: false |

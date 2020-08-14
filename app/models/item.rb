@@ -15,7 +15,15 @@ class Item < ApplicationRecord
    with_options presence: true do
       validates :name
       validates :text
+      validates :category
+      validates :product_state
+      validates :delivery
+      validates :prefecture
+      validates :day
       validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "is out of setting range"}
+   end
+   def was_attached?
+      self.image.attached?
    end
 
 
