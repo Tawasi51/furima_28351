@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   # devise_for :addresses
   # devise_for :sales
   # devise_for :items
-  resources :items 
+  resources :items do
+    resources :sales, only: [:create]
+  end
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

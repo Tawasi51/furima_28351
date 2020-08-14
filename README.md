@@ -77,11 +77,11 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to : item
+- belongs_to :item
 
 ### addresses テーブル
 
-| Column  | Type       | Options                        |
+| Column  | Type      | Options                        |
 | ------- | ---------- | ------------------------------ |
 | post_code    | string | null: false|
 | pref    | string | null: false |
