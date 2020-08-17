@@ -24,5 +24,4 @@ class Item < ApplicationRecord
     validates :delivery_id
     validates :day_id
   end
-
 end
