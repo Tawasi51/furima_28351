@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :correct_user?, only: [:edit, :destroy]
-  before_action :set_item, only: [:show, :edit]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -26,6 +26,14 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_item
@@ -47,5 +55,9 @@ class ItemsController < ApplicationController
       :user_id
       # user_idはユーザー登録の時に作成されたidなので増えたりはしない。増えるのは(item_)id
     ).merge(user_id: current_user.id)
+  end
+
+  def correct_user?
+    redirect_to root_path unless current_user.id == @item.user_id
   end
 end

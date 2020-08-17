@@ -14,19 +14,15 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :text
-    validates :category
-    validates :product_state
-    validates :delivery
     validates :prefecture
-    validates :day
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
   end
-  def was_attached?
-    image.attached?
+
+  with_options numericality: { greater_than: 1, message: 'is out of setting range' } do
+    validates :category_id
+    validates :product_state_id
+    validates :delivery_id
+    validates :day_id
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # devise :database_authenticatable, :registerable,
-  #          :recoverable, :rememberable, :validate
 end
