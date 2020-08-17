@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user?, only: [:edit, :destroy]
+  before_action :set_item, only: [:show, :edit]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    # (params[:id])でitem_id(出品商品のid)を作成
   end
 
   def item_params
@@ -43,6 +45,7 @@ class ItemsController < ApplicationController
       :day_id,
       :price,
       :user_id
+      # user_idはユーザー登録の時に作成されたidなので増えたりはしない。増えるのは(item_)id
     ).merge(user_id: current_user.id)
   end
 end

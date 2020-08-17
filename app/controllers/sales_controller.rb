@@ -4,6 +4,7 @@ class SalesController < ApplicationController
   end
 
   private
+
   def sale_params
     params.require(:sale).merge(user_id: current_user.id, item_id: params[:item_id])
   end
