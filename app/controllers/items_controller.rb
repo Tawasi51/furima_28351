@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-    #(params[:id])でitem_id(出品商品のid)を作成
+    # (params[:id])でitem_id(出品商品のid)を作成
   end
 
   def item_params
@@ -48,5 +48,4 @@ class ItemsController < ApplicationController
       # user_idはユーザー登録の時に作成されたidなので増えたりはしない。増えるのは(item_)id
     ).merge(user_id: current_user.id)
   end
-  
 end
