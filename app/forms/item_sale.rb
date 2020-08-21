@@ -16,7 +16,7 @@ class ItemSale
     # ユーザーの情報を保存し、「user」という変数に入れている
     Sale.create(user_id: user_id,item_id: item_id)
 
-    # 住所の情報を保存
+    #   住所の情報を保存
     Address.create(post_code: post_code, pref_id: pref_id, city: city, street: street, building: building,tel:tel,
     item_id: item_id)
 
