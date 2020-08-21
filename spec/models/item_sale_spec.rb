@@ -48,5 +48,11 @@ RSpec.describe ItemSale, type: :model do
       @item_sale.valid?
       expect(@item_sale.errors.full_messages).to include("Tel is invalid")
     end
+    it 'telが12字を超過すると保存できないこと' do
+      @item_sale.tel = '080999977773'
+      @item_sale.valid?
+      expect(@item_sale.errors.full_messages).to include("Tel is invalid")
+    end
   end
 end
+
